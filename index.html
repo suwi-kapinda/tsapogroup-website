@@ -814,7 +814,75 @@ recognized diversified conglomerate. We are home to over 15 dynamic Strategic Bu
     </section>
     <!-- end: About Section -->
 
-    <!-- Strategic Business Units Section removed -->
+    <!-- start: Strategic Business Units Section -->
+    <section class="tj-sbu-section section-gap" style="background-color: #f8f9fa; padding: 80px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="sec-heading text-center mb-5">
+              <h2 class="sec-title" style="color: #333; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Strategic Business Units</h2>
+              <p class="desc" style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Discover our diverse portfolio of specialized business units, each delivering excellence in their respective industries</p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="sbu-buttons-container" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+              <!-- Motor Dealers -->
+              <button class="sbu-button" data-sbu="motor-dealers" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Motor <span class="highlight-text" style="color: #e17321;">Dealers</span>
+              </button>
+              
+              <!-- Telematics -->
+              <button class="sbu-button" data-sbu="telematics" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Telematics
+              </button>
+              
+              <!-- Travel & Tours -->
+              <button class="sbu-button" data-sbu="travel-tours" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Travel & <span class="highlight-text" style="color: #e17321;">Tours</span>
+              </button>
+              
+              <!-- Auto Body Shop -->
+              <button class="sbu-button" data-sbu="auto-body-shop" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Auto Body <span class="highlight-text" style="color: #e17321;">Shop</span>
+              </button>
+              
+              <!-- Mining & Construction -->
+              <button class="sbu-button" data-sbu="mining-construction" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Mining & <span class="highlight-text" style="color: #e17321;">Construction</span>
+              </button>
+              
+              <!-- Vehicle Spare Parts -->
+              <button class="sbu-button" data-sbu="vehicle-spare-parts" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Vehicle <span class="highlight-text" style="color: #e17321;">Spare Parts</span>
+              </button>
+              
+              <!-- Transport & Logistics -->
+              <button class="sbu-button" data-sbu="transport-logistics" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Transport & <span class="highlight-text" style="color: #e17321;">Logistics</span>
+              </button>
+              
+              <!-- Electric Vehicles -->
+              <button class="sbu-button" data-sbu="electric-vehicles" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Electric <span class="highlight-text" style="color: #e17321;">Vehicles</span>
+              </button>
+              
+              <!-- Solar Energy -->
+              <button class="sbu-button" data-sbu="solar-energy" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Solar <span class="highlight-text" style="color: #e17321;">Energy</span>
+              </button>
+              
+              <!-- Information Technology -->
+              <button class="sbu-button" data-sbu="information-technology" style="background-color: #333; color: white; border: none; border-radius: 8px; padding: 15px 30px; width: 100%; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">
+                Information <span class="highlight-text" style="color: #e17321;">Technology</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end: Strategic Business Units Section -->
 
     <!-- start: Working process Section -->
     <section class="tj-project-section-2 section-gap">
@@ -1323,6 +1391,136 @@ Tsapo Group also extends its expertise into Information Technology (IT) services
   <script src="assets/js/main.js" defer></script>
 
 
+  <!-- SBU Modals -->
+  <!-- Motor Dealers Modal -->
+  <div id="motor-dealers-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Motor Dealers</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="massbreed-investment-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Massbreed Investment Zimbabwe</button>
+        <button class="company-select-btn" data-company="lovol-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Lovol Zimbabwe</button>
+        <button class="company-select-btn" data-company="sinotruk-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Sinotruk Zimbabwe</button>
+        <button class="company-select-btn" data-company="tsapo-motors.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Tsapo Motors / Ashok Leyland Zimbabwe</button>
+        <button class="company-select-btn" data-company="tsapo-southern-region.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Tsapo Southern Region</button>
+        <button class="company-select-btn" data-company="massbreed-investment-zambia.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Massbreed Investment Zambia</button>
+        <button class="company-select-btn" data-company="tsapo-industries-zambia.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Tsapo Industries Zambia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telematics Modal -->
+  <div id="telematics-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Telematics</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="ctrack-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Ctrack Zimbabwe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Travel & Tours Modal -->
+  <div id="travel-tours-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Travel & Tours</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="lindezi-travel-tours.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Lindezi Travel & Tours</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auto Body Shop Modal -->
+  <div id="auto-body-shop-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Auto Body Shop</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="supreme-panel-beaters.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Supreme Panel Beaters</button>
+        <button class="company-select-btn" data-company="grand-auto-premier.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Grand Auto Premier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mining & Construction Modal -->
+  <div id="mining-construction-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Mining & Construction</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="tsapo-construction.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Tsapo Construction</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vehicle Spare Parts Modal -->
+  <div id="vehicle-spare-parts-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Vehicle Spare Parts</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="chinese-parts-solutions.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Chinese Parts Solutions</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transport & Logistics Modal -->
+  <div id="transport-logistics-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Transport & Logistics</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="harakati-logistics-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Harakati Logistics Zimbabwe</button>
+        <button class="company-select-btn" data-company="zerobay-freight-forwarding.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">ZeroBay Freight and Forwarding</button>
+        <button class="company-select-btn" data-company="harakati-logistics-zambia.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Harakati Logistics Zambia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Electric Vehicles Modal -->
+  <div id="electric-vehicles-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Electric Vehicles</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="byd-zimbabwe.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">BYD Zimbabwe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solar Energy Modal -->
+  <div id="solar-energy-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Solar Energy</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="evca-center.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">EVCA Center</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Information Technology Modal -->
+  <div id="information-technology-modal" class="sbu-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+      <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+      <h2 style="color: #e17321; margin-bottom: 20px; text-align: center;">Select SBU</h2>
+      <h3 style="color: #333; margin-bottom: 30px; text-align: center;">Information Technology</h3>
+      <div class="company-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="company-select-btn" data-company="reno-systems.html" style="background-color: #e17321; color: white; border: none; border-radius: 8px; padding: 12px 20px; cursor: pointer; font-size: 1rem;">Reno Systems</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Optimized JavaScript for cPanel -->
   <script>
     // Optimized loading for cPanel hosting
@@ -1413,6 +1611,78 @@ Tsapo Group also extends its expertise into Information Technology (IT) services
           document.body.style.overflow = '';
         });
       }
+
+      // SBU Modal Functionality
+      // Add hover effects to SBU buttons
+      const sbuButtons = document.querySelectorAll('.sbu-button');
+      sbuButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          this.style.backgroundColor = '#e17321';
+          this.style.transform = 'translateY(-2px)';
+          // Make all text white on hover
+          this.style.color = 'white';
+          const highlightTexts = this.querySelectorAll('.highlight-text');
+          highlightTexts.forEach(span => {
+            span.style.color = 'white';
+          });
+        });
+        button.addEventListener('mouseleave', function() {
+          this.style.backgroundColor = '#333';
+          this.style.transform = 'translateY(0)';
+          // Restore original colors
+          this.style.color = 'white';
+          const highlightTexts = this.querySelectorAll('.highlight-text');
+          highlightTexts.forEach(span => {
+            span.style.color = '#e17321';
+          });
+        });
+      });
+
+      // Handle SBU button clicks
+      sbuButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const sbuType = this.getAttribute('data-sbu');
+          const modal = document.getElementById(sbuType + '-modal');
+          if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      // Handle modal close buttons
+      const closeButtons = document.querySelectorAll('.close-modal');
+      closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const modal = this.closest('.sbu-modal');
+          if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        });
+      });
+
+      // Handle company select buttons
+      const companySelectButtons = document.querySelectorAll('.company-select-btn');
+      companySelectButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const companyPage = this.getAttribute('data-company');
+          if (companyPage) {
+            window.location.href = companyPage;
+          }
+        });
+      });
+
+      // Close modal when clicking outside
+      const modals = document.querySelectorAll('.sbu-modal');
+      modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) {
+            this.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        });
+      });
 
     });
   </script>
