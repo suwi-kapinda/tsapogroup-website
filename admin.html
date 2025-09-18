@@ -1,0 +1,653 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tsapo Group - Image Management Admin">
+  
+  <!-- Site Title -->
+  <title>Tsapo Group - Image Management</title>
+
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome-pro.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/bexon-icons.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/venobox.min.css">
+  <link rel="stylesheet" href="assets/css/odometer-theme-default.css">
+  <link rel="stylesheet" href="assets/css/meanmenu.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  
+  <!-- Custom Admin Styles -->
+  <style>
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .admin-header {
+      background: #333333;
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      border: 2px solid #e04904;
+    }
+    
+    .company-selector {
+      margin-bottom: 30px;
+    }
+    
+    .company-selector select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e04904;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+      color: #333;
+    }
+    
+    .company-selector select:focus {
+      border-color: #e04904;
+      box-shadow: 0 0 5px rgba(224, 73, 4, 0.3);
+      outline: none;
+    }
+    
+    .upload-area {
+      border: 3px dashed #e04904;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 30px;
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+    }
+    
+    .upload-area:hover {
+      border-color: #333333;
+      background: #f0f0f0;
+    }
+    
+    .upload-area.dragover {
+      border-color: #e04904;
+      background: #fff5f0;
+    }
+    
+    .upload-btn {
+      background: #e04904;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .upload-btn:hover {
+      background: #333333;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(224, 73, 4, 0.4);
+    }
+    
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .image-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .image-info {
+      padding: 15px;
+    }
+    
+    .image-name {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .image-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn-delete {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    
+    .btn-preview {
+      background: #17a2b8;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    
+    .btn-download {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #e04904;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    
+    .alert {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .alert-success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .alert-danger {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+    }
+    
+    .modal img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+    }
+    
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .stats-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .stats-number {
+      font-size: 2em;
+      font-weight: bold;
+      color: #e04904;
+    }
+    
+    .stats-label {
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Admin Container -->
+  <div class="admin-container">
+    <!-- Header -->
+    <div class="admin-header">
+      <h1 style="color: white;"><i class="fas fa-images" style="color: white;"></i> Tsapo Group - Image Management</h1>
+      <p style="color: white;">Manage images for all company pages</p>
+    </div>
+
+    <!-- Company Selector -->
+    <div class="company-selector">
+      <label for="companySelect"><strong>Select Company:</strong></label>
+      <select id="companySelect" onchange="loadCompanyImages()">
+        <option value="">Choose a company...</option>
+        <option value="byd">BYD Zimbabwe</option>
+        <option value="chinese-parts-solutions">Chinese Parts Solutions</option>
+        <option value="ctrack">CTrack Zimbabwe</option>
+        <option value="evca-center">EVCA Center</option>
+        <option value="grand-auto">Grand Auto Premier</option>
+        <option value="harakati-zambia">Harakati Logistics Zambia</option>
+        <option value="harakati-zimbabwe">Harakati Logistics Zimbabwe</option>
+        <option value="lindezi">Lindezi Travel Tours</option>
+        <option value="lovol">Lovol Zimbabwe</option>
+        <option value="massbreed-zambia">Massbreed Investment Zambia</option>
+        <option value="massbreed-zimbabwe">Massbreed Investment Zimbabwe</option>
+        <option value="reno-systems">Reno Systems</option>
+        <option value="sinotruk">Sinotruk Zimbabwe</option>
+        <option value="supreme-panel-beaters">Supreme Panel Beaters</option>
+        <option value="tsapo-industries-zambia">Tsapo Industries Zambia</option>
+        <option value="tsapo-motors">Tsapo Motors</option>
+        <option value="tsapo-southern-region">Tsapo Southern Region</option>
+        <option value="zerobay">Zerobay Freight Forwarding</option>
+      </select>
+    </div>
+
+    <!-- Upload Area -->
+    <div class="upload-area" id="uploadArea">
+      <i class="fas fa-cloud-upload-alt" style="font-size: 48px; color: #667eea; margin-bottom: 20px;"></i>
+      <h3>Drag & Drop Images Here</h3>
+      <p>or click to select files</p>
+      <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+        <i class="fas fa-plus"></i> Select Images
+      </button>
+      <div class="progress-bar" id="progressBar" style="display: none;">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Alert Messages -->
+    <div id="alertContainer"></div>
+
+    <!-- Statistics -->
+    <div class="row" id="statsContainer" style="display: none;">
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number" id="totalImages">0</div>
+          <div class="stats-label">Total Images</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number" id="totalSize">0 MB</div>
+          <div class="stats-label">Total Size</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number" id="lastUpdated">-</div>
+          <div class="stats-label">Last Updated</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery" id="imageGallery">
+      <!-- Images will be loaded here -->
+    </div>
+
+    <!-- Back to Website -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="btn btn-primary" style="padding: 15px 30px; text-decoration: none; background: #e04904; border: none; color: white; border-radius: 8px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='#333333'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(224, 73, 4, 0.4)'" onmouseout="this.style.background='#e04904'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <i class="fas fa-home"></i> Back to Website
+      </a>
+    </div>
+  </div>
+
+  <!-- Image Preview Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Preview">
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Global variables
+    let currentCompany = '';
+    let images = [];
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      setupEventListeners();
+    });
+    
+    function setupEventListeners() {
+      // File input change
+      document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+      
+      // Drag and drop
+      const uploadArea = document.getElementById('uploadArea');
+      uploadArea.addEventListener('dragover', handleDragOver);
+      uploadArea.addEventListener('dragleave', handleDragLeave);
+      uploadArea.addEventListener('drop', handleDrop);
+      uploadArea.addEventListener('click', () => document.getElementById('fileInput').click());
+      
+      // Modal close
+      document.querySelector('.close').addEventListener('click', closeModal);
+      document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+      });
+    }
+    
+    function loadCompanyImages() {
+      currentCompany = document.getElementById('companySelect').value;
+      if (!currentCompany) {
+        document.getElementById('imageGallery').innerHTML = '';
+        document.getElementById('statsContainer').style.display = 'none';
+        return;
+      }
+      
+      // Simulate loading images (in a real implementation, this would fetch from server)
+      loadImagesForCompany(currentCompany);
+    }
+    
+    function loadImagesForCompany(company) {
+      // Show loading state
+      const gallery = document.getElementById('imageGallery');
+      gallery.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i><p>Loading images...</p></div>';
+      
+      // Fetch images from API
+      fetch(`api/image-manager.php?company=${company}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            displayImages(data.images);
+            updateStats(data.images);
+          } else {
+            showAlert('Error loading images: ' + (data.error || 'Unknown error'), 'danger');
+            displayImages([]);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          showAlert('Error loading images: ' + error.message, 'danger');
+          displayImages([]);
+        });
+    }
+    
+    function displayImages(images) {
+      const gallery = document.getElementById('imageGallery');
+      gallery.innerHTML = '';
+      
+      if (images.length === 0) {
+        gallery.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><i class="fas fa-images" style="font-size: 48px; margin-bottom: 20px;"></i><p>No images found for this company.</p></div>';
+        return;
+      }
+      
+      images.forEach((image, index) => {
+        const imageCard = createImageCard(image, index);
+        gallery.appendChild(imageCard);
+      });
+    }
+    
+    function createImageCard(image, index) {
+      const card = document.createElement('div');
+      card.className = 'image-card';
+      card.innerHTML = `
+        <img src="assets/images/gallery/${currentCompany}/${image.name}" 
+             alt="${image.name}" 
+             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4='">
+        <div class="image-info">
+          <div class="image-name">${image.name}</div>
+          <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
+            Size: ${image.size} | Date: ${image.date}
+          </div>
+          <div class="image-actions">
+            <button class="btn-preview" onclick="previewImage('${image.name}')">
+              <i class="fas fa-eye"></i> Preview
+            </button>
+            <button class="btn-download" onclick="downloadImage('${image.name}')">
+              <i class="fas fa-download"></i> Download
+            </button>
+            <button class="btn-delete" onclick="deleteImage('${image.name}', ${index})">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+    
+    function updateStats(images) {
+      document.getElementById('statsContainer').style.display = 'flex';
+      document.getElementById('totalImages').textContent = images.length;
+      
+      // Calculate total size
+      let totalSize = 0;
+      images.forEach(img => {
+        const size = parseFloat(img.size);
+        totalSize += size;
+      });
+      document.getElementById('totalSize').textContent = totalSize.toFixed(1) + ' MB';
+      
+      // Last updated
+      if (images.length > 0) {
+        const latestDate = images.reduce((latest, img) => {
+          return new Date(img.date) > new Date(latest) ? img.date : latest;
+        }, images[0].date);
+        document.getElementById('lastUpdated').textContent = latestDate;
+      }
+    }
+    
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.currentTarget.classList.add('dragover');
+    }
+    
+    function handleDragLeave(e) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('dragover');
+    }
+    
+    function handleDrop(e) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('dragover');
+      
+      if (!currentCompany) {
+        showAlert('Please select a company first!', 'danger');
+        return;
+      }
+      
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+    }
+    
+    function handleFileSelect(e) {
+      if (!currentCompany) {
+        showAlert('Please select a company first!', 'danger');
+        return;
+      }
+      
+      const files = e.target.files;
+      handleFiles(files);
+    }
+    
+    function handleFiles(files) {
+      if (files.length === 0) return;
+      
+      const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
+      
+      if (imageFiles.length === 0) {
+        showAlert('Please select only image files!', 'danger');
+        return;
+      }
+      
+      // Show progress bar
+      const progressBar = document.getElementById('progressBar');
+      const progressFill = document.getElementById('progressFill');
+      progressBar.style.display = 'block';
+      
+      // Create FormData for upload
+      const formData = new FormData();
+      formData.append('company', currentCompany);
+      
+      imageFiles.forEach((file, index) => {
+        formData.append('images[]', file);
+      });
+      
+      // Upload files
+      fetch('api/image-manager.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        progressBar.style.display = 'none';
+        progressFill.style.width = '0%';
+        
+        if (data.success) {
+          showAlert(data.message, 'success');
+          if (data.errors && data.errors.length > 0) {
+            data.errors.forEach(error => {
+              showAlert(error, 'danger');
+            });
+          }
+          
+          // Reload images
+          setTimeout(() => {
+            loadCompanyImages();
+          }, 1000);
+        } else {
+          showAlert('Upload failed: ' + (data.error || 'Unknown error'), 'danger');
+        }
+      })
+      .catch(error => {
+        progressBar.style.display = 'none';
+        progressFill.style.width = '0%';
+        console.error('Upload error:', error);
+        showAlert('Upload failed: ' + error.message, 'danger');
+      });
+    }
+    
+    function previewImage(imageName) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = `assets/images/gallery/${currentCompany}/${imageName}`;
+      modal.style.display = 'block';
+    }
+    
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    function downloadImage(imageName) {
+      const link = document.createElement('a');
+      link.href = `assets/images/gallery/${currentCompany}/${imageName}`;
+      link.download = imageName;
+      link.click();
+    }
+    
+    function deleteImage(imageName, index) {
+      if (confirm(`Are you sure you want to delete "${imageName}"?`)) {
+        // Make API request to delete image
+        fetch('api/image-manager.php', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            company: currentCompany,
+            filename: imageName
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showAlert(data.message, 'success');
+            // Reload images
+            setTimeout(() => {
+              loadCompanyImages();
+            }, 1000);
+          } else {
+            showAlert('Delete failed: ' + (data.error || 'Unknown error'), 'danger');
+          }
+        })
+        .catch(error => {
+          console.error('Delete error:', error);
+          showAlert('Delete failed: ' + error.message, 'danger');
+        });
+      }
+    }
+    
+    function showAlert(message, type) {
+      const alertContainer = document.getElementById('alertContainer');
+      const alert = document.createElement('div');
+      alert.className = `alert alert-${type}`;
+      alert.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+        ${message}
+      `;
+      
+      alertContainer.appendChild(alert);
+      
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+        alert.remove();
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
